@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buscar frase</title>
+</head>
+<body>
+    <h1>Buscar frase</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="palabra">Palabra:</label>
+        <input type="text" name="palabra" id="palabra">
+        <button type="submit">Buscar</button>
+    </form>
+    {% if frase %}
+        <p>La frase para la palabra '{{ palabra }}' es:</p>
+        <p>{{ frase }}</p>
+    {% elif mensaje %}
+        <p>{{ mensaje }}</p>
+    {% endif %}
+</body>
+</html>
